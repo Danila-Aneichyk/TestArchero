@@ -5,6 +5,9 @@ public class PlayerMovement : MonoBehaviour
    [Header("Components")]
    [SerializeField] private Rigidbody _rb;
    [SerializeField] private FixedJoystick _joystick;
+
+   [Header("Animation")]
+   [SerializeField] private PlayerAnimation _animation;
    
    [Header("Physics")]
    [SerializeField] private float _speed = 3f;
@@ -26,5 +29,6 @@ public class PlayerMovement : MonoBehaviour
    private void Move()
    {
       _rb.velocity = new Vector3(_joystick.Horizontal * _speed, _rb.velocity.y, _joystick.Vertical * _speed);
+      _animation.PlayRun(_rb.velocity.magnitude);
    }
 }

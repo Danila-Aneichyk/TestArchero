@@ -919,6 +919,20 @@ MonoBehaviour:
   _rb: {fileID: 989599691}
   _joystick: {fileID: 849738751}
   _speed: 3
+--- !u!136 &989599695
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989599688}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.45454836
+  m_Height: 1.6741257
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.2431736, z: 0.04545164}
 --- !u!1 &1002698254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,7 +1550,7 @@ PrefabInstance:
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 55
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
@@ -1580,7 +1594,7 @@ PrefabInstance:
     - target: {fileID: 2953919840396224956, guid: cbfcbf3d109029140a28a2e7f8757b26,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.93
+      value: 3.172
       objectReference: {fileID: 0}
     - target: {fileID: 2953919840396224956, guid: cbfcbf3d109029140a28a2e7f8757b26,
         type: 3}
