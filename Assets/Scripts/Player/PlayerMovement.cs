@@ -28,7 +28,9 @@ public class PlayerMovement : MonoBehaviour
 
    private void Move()
    {
-      _rb.velocity = new Vector3(_joystick.Horizontal * _speed, _rb.velocity.y, _joystick.Vertical * _speed);
-      _animation.PlayRun(_rb.velocity.magnitude);
+      Vector3 velocity = _rb.velocity;
+      velocity = new Vector3(_joystick.Horizontal * _speed, velocity.y, _joystick.Vertical * _speed);
+      _rb.velocity = velocity;
+      _animation.PlayRun(velocity.magnitude);
    }
 }
