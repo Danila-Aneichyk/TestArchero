@@ -2,6 +2,7 @@
 
 public class DetectPlayer : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField] private EnemyMovement _enemyMovement;
 
     private void OnTriggerEnter(Collider col)

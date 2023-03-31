@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public abstract class EnemyMovement : MonoBehaviour
 {
     [Header("Physic values")]
     [SerializeField] protected float _speed = 4;
-    private Transform _cachedTransform;
+    protected Transform _cachedTransform;
     private Rigidbody _rb;
-
-    [Header("Player values")]
-    [SerializeField] private Transform _player;
+    
+    [HideInInspector]
+    public Transform Player;
 
     private void Awake()
     {
@@ -17,35 +18,34 @@ public abstract class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!IsPlayerValid())
-            return;
-        
-        Move();
-        RotateToPlayer();
+        SetPlayer(Player);
     }
 
-    public abstract bool IsPlayerValid();
+    public bool IsPlayerValid()
+    {
+        return Player != null;
+    }
 
     public abstract void Move();
 
     public void SetPlayer(Transform player)
     {
-        _player = player;
+        Player = player;
 
-        if (_player == null)
+        if (Player == null)
         {
             SetVelocity(Vector3.zero);
         }
     }
-    
-    private void RotateToPlayer()
-    {
-        transform.LookAt(_player, Vector3.up);
-    }
 
-    private void SetVelocity(Vector3 velocity)
+    public void SetVelocity(Vector3 velocity)
     {
         _rb.velocity = velocity;
         //TODO: Enemy Animation
+    }
+
+    private void RotateToPlayer()
+    {
+        transform.LookAt(Player, Vector3.up);
     }
 }
