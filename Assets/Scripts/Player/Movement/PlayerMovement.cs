@@ -1,36 +1,44 @@
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class PlayerMovement : MonoBehaviour
 {
    [Header("Components")]
-   [SerializeField] private Rigidbody _rb;
    [SerializeField] private FixedJoystick _joystick;
+   private NavMeshAgent _agent;
 
    [Header("Animation")]
    [SerializeField] private PlayerAnimation _animation;
    
    [Header("Physics")]
-   [SerializeField] private float _speed = 3f;
+   private Vector3 _direction; 
+
+   private void Awake()
+   {
+      _agent = GetComponent<NavMeshAgent>();
+   }
 
    private void FixedUpdate()
    {
       Move();
-      Rotate();
+      //Rotate();
    }
 
-   private void Rotate()
+   /*private void Rotate()
    {
       if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
       {
          transform.rotation = Quaternion.LookRotation(_rb.velocity);
       }
-   }
+   }*/
 
    private void Move()
    {
-      Vector3 velocity = _rb.velocity;
-      velocity = new Vector3(_joystick.Horizontal * _speed, velocity.y, _joystick.Vertical * _speed);
-      _rb.velocity = velocity;
-      _animation.PlayRun(velocity.magnitude);
+      _direction.Set(_joystick.Horizontal, 0f, _joystick.Vertical);
+      
+      _agent.Move(_direction * (Time.deltaTime * _agent.speed));
+      _agent.SetDestination(transform.position + _direction);
+      //_animation.PlayRun(ve);
    }
 }

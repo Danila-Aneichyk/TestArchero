@@ -490,7 +490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3033381100249862459}
   m_LocalRotation: {x: 0.49999973, y: 0.5000003, z: 0.5000003, w: -0.49999973}
-  m_LocalPosition: {x: -0.009158373, y: -0.167, z: 0.075959206}
+  m_LocalPosition: {x: -0.009158373, y: 0.28, z: 0.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -749,9 +749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6696996151775185130}
-  - component: {fileID: 2259914084711720040}
   - component: {fileID: 5753666390308677907}
-  - component: {fileID: 3202190180485320492}
   - component: {fileID: 6040347208271680336}
   - component: {fileID: 8538407357672974204}
   m_Layer: 0
@@ -778,22 +776,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2259914084711720040
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6074078211403133264}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!114 &5753666390308677907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,18 +790,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startHp: 100
   _maxHp: 100
---- !u!114 &3202190180485320492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6074078211403133264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3f82a813342412eb5488673cf9e32fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &6040347208271680336
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -829,7 +799,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6074078211403133264}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.6
+  m_Radius: 1.08
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -880,7 +850,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6174739499656334938}
   m_LocalRotation: {x: 0.000000115202326, y: 0.7071068, z: 0.7071068, w: -0.000000115202326}
-  m_LocalPosition: {x: -0.009158373, y: -0.62759805, z: 0.039834023}
+  m_LocalPosition: {x: -0.009158373, y: 0.16, z: 0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
