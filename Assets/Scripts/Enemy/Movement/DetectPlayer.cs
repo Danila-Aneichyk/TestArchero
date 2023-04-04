@@ -1,22 +1,20 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class DetectPlayer : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private EnemyMovement _enemyMovement;
+    //[SerializeField] private EnemyMovement _enemyMovement;
+    private Transform _player;
 
-    private void OnTriggerEnter(Collider col)
+    private void Awake()
     {
-        SetPlayer(col.gameObject.transform);
-    }
-
-    private void OnTriggerExit(Collider col)
-    {
-        SetPlayer(null);
+        _player = GameObject.FindWithTag("Player").transform;
+        SetPlayer(_player);
     }
 
     private void SetPlayer(Transform player)
     {
-        _enemyMovement.SetPlayer(player);
+       // _enemyMovement.SetPlayer(player);
     }
 }

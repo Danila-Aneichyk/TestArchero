@@ -7,6 +7,7 @@ public class EnemyMovementMediator : MonoBehaviour
     [SerializeField] private EnemyMeleeMovement _enemyMelee;
     [SerializeField] private EnemyRangeMovement _enemyRange;
     [SerializeField] private EnemyHp _enemyHp;
+    private EnemyMovement _currentMovement; 
 
     [Header("Hp value")]
     private int _hp = 30; 
@@ -14,6 +15,8 @@ public class EnemyMovementMediator : MonoBehaviour
     private void Awake()
     {
         _enemyHp = GetComponent<EnemyHp>();
+        _enemyMelee.enabled = false;
+        _enemyRange.enabled = false;
     }
 
     private void Update()
@@ -23,15 +26,16 @@ public class EnemyMovementMediator : MonoBehaviour
         
         if (_enemyHp.CurrentHp >= _hp)
         {
-            _enemyRange.enabled = false;
-            _enemyMelee.enabled = true;
-            _enemyMelee.Move();
+            _currentMovement = _enemyMelee;
+            _currentMovement.Move();
+            _currentMovement.Stop();
         }
         else if(_enemyHp.CurrentHp <= _hp)
         {
-            _enemyRange.enabled = true;
-            _enemyMelee.enabled = false;
-            _enemyRange.Move();
+            _currentMovement = _enemyRange;
+            _currentMovement.Move();
+            _currentMovement.Stop();
+            
         }
 
     }

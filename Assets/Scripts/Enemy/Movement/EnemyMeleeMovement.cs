@@ -4,7 +4,8 @@ public class EnemyMeleeMovement : EnemyMovement
 {
     public override void Move()
     {
-        Vector3 direction = (Player.position - _cachedTransform.position).normalized;
-        SetVelocity(direction * _speed);
+        Debug.Log("Melee Movement");
+        Vector3 direction = Player.position - transform.position; 
+        transform.Translate(direction.normalized * (_speed * Time.deltaTime)); 
     }
 }
